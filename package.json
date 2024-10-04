@@ -19,6 +19,7 @@
     "cropperjs": "^1.6.1",
     "dayjs": "^1.11.7",
     "format-quantity": "^3.0.0",
+    "fuse.js": "^7.0.0",
     "html-to-image": "^1.11.11",
     "micromark": "^4.0.0",
     "numeric-quantity": "^2.0.1",

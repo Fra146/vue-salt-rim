@@ -1,4 +1,21 @@
+import Fuse from "fuse.js"
+
 class Utils {
+    static fuzzySearch(data, term, keys, optionsOverride = {}) {
+        const defaultOptions = {
+            isCaseSensitive: false,
+            includeScore: false,
+            shouldSort: true,
+            threshold: 0.4,
+            keys: keys
+        }
+
+        const options = optionsOverride ? { ...defaultOptions, ...optionsOverride } : defaultOptions
+        const fuse = new Fuse(data, options)
+        return fuse.search(term).map(result => result.item)
+    }
+
+
     static copyToClipboard(string) {
         try {
             const clipboard = navigator.clipboard;

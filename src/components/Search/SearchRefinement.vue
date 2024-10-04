@@ -26,6 +26,8 @@
     </div>
 </template>
 <script>
+import Utils from './../../Utils.js'
+
 export default {
     props: {
         modelValue: {
@@ -96,10 +98,7 @@ export default {
             if (this.searchTerm == null || this.searchTerm == '') {
                 return this.refinements
             }
-
-            return this.refinements.filter(r => {
-                return r.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-            })
+            return Utils.fuzzySearch(this.refinements, this.searchTerm, ['name'])
         }
     },
     created() {
